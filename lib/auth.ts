@@ -42,6 +42,14 @@ export const authOptions: NextAuthOptions ={
                 placeholder: "Password",
             },
         },
+        async authorize(credentials, req) {
+            if(!credentials?.email || !credentials.password){
+                throw new Error("Please enter email and passowrd")
+            }
+
+            const user = await db.
+        }
+
     })
 ]
 }
