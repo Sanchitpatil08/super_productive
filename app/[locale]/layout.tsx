@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { notFound } from "next/navigation";
+
+const locales = ["en"];
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,11 +23,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: {locale}
 }: Readonly<{
   children: React.ReactNode;
+  params : {locale: string}
 }>) {
+
+  const isValidLocale = locales.some((curr) => curr === locale);
+  if (!isValidLocale) notFound();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
