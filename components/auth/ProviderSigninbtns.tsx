@@ -19,7 +19,7 @@ export const ProviderSignInBtns = ({
                 {signInCard? t("SIGN_IN.PROVIDERS.GOOGLE"): t("SIGN_UP.PROVIDERS.GOOGLE") }
             </ProviderSignInBtn>
 
-            <ProviderSignInBtn className=" w-full rounded-[1.9rem] border bg-black/70 text-white dark:bg-black/70 hover:bg-black/80  dark:hover:bg-black/50">
+            <ProviderSignInBtn className=" w-full rounded-[1.9rem] border bg-black/90 text-white dark:bg-black/70 hover:bg-black/80  dark:hover:bg-black/50">
                 {signInCard? t("SIGN_IN.PROVIDERS.APPLE"): t("SIGN_UP.PROVIDERS.APPLE") }
             </ProviderSignInBtn>
 

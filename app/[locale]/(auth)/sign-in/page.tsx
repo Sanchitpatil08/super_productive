@@ -3,12 +3,12 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-    title: "Sign Up",
-    description:"Sign up "
+    title: "Sign In",
+    description:"Sign In "
 }
 
-const SignUp = () =>{
-    return <Authcard/>
+const SignIn = () =>{
+    return <Authcard signInCard/>
 }
 
-export default SignUp;
+export default SignIn;

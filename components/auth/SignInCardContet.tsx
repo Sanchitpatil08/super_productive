@@ -1,6 +1,5 @@
 "use client";
 
-import { signUpSchema, SignUpSchema } from "@/schema/signUpSchema"
 import { CardContent } from "../ui/card"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { zodResolver} from "@hookform/resolvers/zod"
@@ -10,20 +9,20 @@ import { Input } from "../ui/input";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { signInSchema, SignInSchema } from "@/schema/signInSchema";
 
 
-export const SignUpCardContent = () =>{
+export const SignInCardContent = () =>{
     const t = useTranslations("AUTH")
-    const form = useForm<SignUpSchema>({
-        resolver: zodResolver (signUpSchema),
+    const form = useForm<SignInSchema>({
+        resolver: zodResolver (signInSchema),
         defaultValues :{
             email: "",
             password: "",
-            username: ""
         }
     });
 
-    const onSubmit = async (data: SignUpSchema) =>{
+    const onSubmit = async (data: SignInSchema) =>{
         console.log(data);
     }
 
@@ -32,23 +31,12 @@ export const SignUpCardContent = () =>{
             <CardContent>
                 <Form {...form} >
                     <form className=" space-y-7" onSubmit={form.handleSubmit(onSubmit)}>
-                        <ProviderSignInBtns />
+                        <ProviderSignInBtns signInCard />
                         <div className=" space-y-1.5">
                             <FormField control={form.control} name="email" render={({field}) =>(
                                 <FormItem>
                                     <FormControl>
                                         <Input placeholder={t("EMAIL")} {...field} />
-                                    </FormControl>
-                                    <FormMessage/>
-                                </FormItem>
-                            )}
-                            />
-
-
-                            <FormField control={form.control} name="username" render={({field}) =>(
-                                <FormItem>
-                                    <FormControl>
-                                        <Input placeholder={t("USERNAME")} {...field} />
                                     </FormControl>
                                     <FormMessage/>
                                 </FormItem>
@@ -69,13 +57,10 @@ export const SignUpCardContent = () =>{
 
 
                         <div  className=" space-y-2 ">
-                            <Button className=" w-full font-bold text-white " type="submit"> Sign Up </Button>
+                            <Button className=" w-full font-bold text-white " type="submit"> Sign In </Button>
                         </div>
                         <p className=" text-xs text-center text-muted-foreground ">
-                            {t("SIGN_UP.TERMS.FIRST")} { " "}
-                            <Link className=" font-bold" href={"/"}>
-                                {t("SIGN_UP.TERMS.SECOND")}
-                            </Link>
+                            {t("SIGN_IN.FORGOT_PASSWORD")} { " "}
                         </p>
                     </form>
                 </Form>

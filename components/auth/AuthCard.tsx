@@ -3,6 +3,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { SignUpCardContent } from "./SignUpCardContent";
+import { SignInCardContent } from "./SignInCardContet";
 
 
 interface Props {
@@ -27,11 +28,11 @@ export const Authcard = ({signInCard}: Props ) => {
     
             </CardHeader>
             
-            {signInCard? <></> : <SignUpCardContent/>}
+            {signInCard? <SignInCardContent /> : <SignUpCardContent/>}
         </Card>
 
         <p className=" text-sm ">
-        {signInCard? t("SIGN_IN.DONT_HAVE_ACCOUNT.FIRST"): t("SIGN_UP.HAVE_ACCOUNT.FIRST")}
+        {signInCard? t("SIGN_IN.DONT_HAVE_ACCOUNT.FIRST"): t("SIGN_UP.HAVE_ACCOUNT.FIRST")}  {" "}
         <Link className=" text-primary " href={signInCard ? "/sign-up": "sing-in"}>{signInCard? t("SIGN_IN.DONT_HAVE_ACCOUNT.SECOND"): t("SIGN_UP.HAVE_ACCOUNT.SECOND")} {" "}</Link>
         </p>
     </>
