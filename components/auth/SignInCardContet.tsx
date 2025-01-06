@@ -4,7 +4,7 @@ import { CardContent } from "../ui/card"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { zodResolver} from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { ProviderSignInBtns } from "./ProviderSigninbtns"
+import { ProviderSignInBtns } from "./ProviderSignInBtns"
 import { Input } from "../ui/input";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
